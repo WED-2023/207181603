@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grandfather's Website</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+
+  <section class="section">
+    <p>Reach out to us by filling out the form below:</p>
+    <form id="contactForm" action="javascript:void(0);" onsubmit="submitForm()">
+      <input type="email" id="email" name="email" placeholder="Enter your email" required><br><br>
+      <label for="message">Message:</label><br>
+      <textarea id="message" name="message" rows="4" cols="50" placeholder="Write your message here"
+        required></textarea><br><br>
+
+      <select id="smiley" name="smiley">
+        <option selected disabled>Select from the following an emoji</option>
+        <option value=":)">:)</option>
+        <option value=":D">:D</option>
+        <option value=";)">;)</option>
+        <option value=":O">:O</option>
+        <option value="<3"><3</option>
+      </select><br><br>
+
+      
+      <input type="submit" value="Send">
+    </form>
+  </section>
+
+  <script>
+    function submitForm() {
+      var email = document.getElementById('email').value;
+      var message = document.getElementById('message').value;
+      var smiley = document.getElementById('smiley').value;
+      message += ' ' + smiley;
+
+      var mailtoLink = 'mailto:itzikal0@gmail.com?subject=Message from ' + email + '&body=' + message;
+      window.location.href = mailtoLink;
+      document.getElementById('email').value = '';
+      document.getElementById('message').value = '';
+    }
+  </script>
+
+</body>
+
+</html>

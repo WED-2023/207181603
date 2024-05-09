@@ -1,193 +1,124 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-<link rel="stylesheet" type="text/css" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grandfather's Website</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
 </head>
+
 <body>
-<div id="menu">
-<li><a href="#about">About Me</a></li>
-<li><a href="#photos">My Photos</a></li>
-<li><a href="#playlist">My Playlist</a></li>
-<li><a href="#like">Like</a></li>
-<li><a href="#qrcoder">QR code</a></li>
-<li><a href="#spa">Q&A</a></li>
-<li><a href="#contact">Contact Me</a></li>
-</div>
-		  
-<section id="about" class="section">
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-about me
-<br/>
-<br/>
-<br/>
-</section>
 
-<section id="photos" class="section">
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-my photos
-<br/>
-<br/>
-<br/>
-</section>
+  <nav id="menu">
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#photos">Photos</a></li>
+      <li><a href="#playlist">Playlist</a></li>
+      <li><a href="#like">Like</a></li>
+      <li><a href="#qrcoder">QR code</a></li>
+      <li><a href="#qa">Q&A</a></li>
+      <li><a href="#contact">Contact Us</a></li>
+    </ul>
+  </nav>
 
-<section id="playlist" class="section">
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-my playlist
-<br/>
-<br/>
-<br/>
-</section>
+  <section id="about" class="section">
+    <h2>About My Grandfather</h2>
+    <div id="aboutContent"></div>
+  </section>
 
-<section id="like" class="section">
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-give me a like
-<br/>
-<br/>
-<br/>
-</section>
+  <section id="photos" class="section">
+    <h2>My Grandfather Photos</h2>
+    <div id="photosContent"></div>
+  </section>
 
-<section id="qrcoder" class="section">
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-scan my code
-<br/>
-<br/>
-<br/>
-</section>
+  <section id="playlist" class="section">
+    <h2>Favorite Playlists</h2>
+    <div id="playlistContent"></div>
+  </section>
 
-<section id="spa" class="section">
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-ans
-<br/>
-<br/>
-<br/>
-</section>
+  <section id="like" class="section">
+    <h2>Like</h2>
+    <div id="likeContent"></div>
+  </section>
 
-<section id="contact" class="section">
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-contact me
-<br/>
-<br/>
-<br/>
-</section>
+  <section id="qrcoder" class="section">
+    <h2>QR Code</h2>
+    <div id="qrcodeContent"></div>
+  </section>
+
+  <section id="qa" class="section" dir="rtl">
+    <h2>Q&A</h2>
+    <div id="questionContent"></div>
+  </section>
+
+  <section id="contact" class="section">
+    <h2>Contact Grandfather</h2>
+    <div id="contactContent"></div>
+  </section>
+
+  
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(function () {
+      $("nav a").click(function (e) {
+        e.preventDefault();
+        var target = $($(this).attr('href'));
+        var offset = target.offset().top - $('#menu').height();
+        $('html, body').animate({
+          scrollTop: offset
+        }, 500);
+      });
+      $(document).scroll(function () {
+        $('#menu').show();
+      });
+
+      $(document).ready(function () {
+        $.get("about.html", function (data) {
+          $("#aboutContent").html(data);
+        });
+      });
+
+      $(document).ready(function () {
+        $.get("photos.html", function (data) {
+          $("#photosContent").html(data);
+        });
+      });
+
+      $(document).ready(function () {
+        $.get("playlist.html", function (data) {
+          $("#playlistContent").html(data);
+        });
+      });
+
+      $(document).ready(function () {
+        $.get("like.html", function (data) {
+          $("#likeContent").html(data);
+        });
+      });
+
+      $(document).ready(function () {
+        $.get("qrcode.html", function (data) {
+          $("#qrcodeContent").html(data);
+        });
+      });
+
+      $(document).ready(function () {
+        $.get("qa.html", function (data) {
+          $("#questionContent").html(data);
+        });
+      });
+
+      $(document).ready(function () {
+        $.get("contact.html", function (data) {
+          $("#contactContent").html(data);
+        });
+      });
 
 
-<script type="text/javascript">
-$(function(){
-  $("#nav a").click(function(e){
-    e.preventDefault();
-    $('html,body').scrollTo(this.hash,this.hash); 
-  });
-});
-</script>
-<script type="text/javascript">
- $(document).scroll(function() {
-    $('#menu').toggle($(this).scrollTop()>1000)
- });​
- </script>
+    })
+  </script>
+
 </body>
+
 </html>
