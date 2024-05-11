@@ -70,8 +70,9 @@ h2 {
 
 .iframe-container {
 	display: inline-block;
-	margin-bottom: 10px;
+	margin-bottom: 100px;
 	width: 125px;
+	margin-bottom: 0;
 }
 
 .iframe-container iframe {
@@ -87,7 +88,8 @@ h2 {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-around;
-	margin: 20px auto;
+	margin: 100px auto;
+	margin-bottom: 0;
 }
 
 .photo-gallery img {
