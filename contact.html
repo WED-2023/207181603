@@ -40,12 +40,14 @@
       var email = document.getElementById('email').value;
       var message = document.getElementById('message').value;
       var smiley = document.getElementById('smiley').value;
-      message += ' ' + smiley;
+      message = smiley !== 'Select from the following an emoji' ? message + ' ' + smiley : message;
+
 
       var mailtoLink = 'mailto:itzikal0@gmail.com?subject=Message from ' + email + '&body=' + message;
       window.location.href = mailtoLink;
       document.getElementById('email').value = '';
       document.getElementById('message').value = '';
+      document.getElementById('smiley').value = 'Select from the following an emoji';
     }
   </script>
 
