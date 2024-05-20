@@ -19,14 +19,17 @@
         required></textarea><br><br>
 
       <select id="smiley" name="smiley">
-        <option selected disabled>Select from the following an emoji</option>
         <option value="🙂">🙂</option>
         <option value="😁">😁</option>
         <option value="🤪">🤪</option>
         <option value="🤓">🤓</option>
         <option value="🥰">🥰</option>
+        <option value="❤️">❤️</option>
+        <option value="🥳">🥳</option>
+        <option value="🤤">🤤</option>
         <option value="🥲">🥲</option>
         <option value="🙁">🙁</option>
+        <option value="😭">😭</option>
         <option value="👍🏼">👍🏼</option>
       </select><br><br>
 
@@ -40,14 +43,14 @@
       var email = document.getElementById('email').value;
       var message = document.getElementById('message').value;
       var smiley = document.getElementById('smiley').value;
-      message = smiley !== 'Select from the following an emoji' ? message + ' ' + smiley : message;
+      message = message + ' ' + smiley;
 
 
       var mailtoLink = 'mailto:itzikal0@gmail.com?subject=Message from ' + email + '&body=' + message;
       window.location.href = mailtoLink;
       document.getElementById('email').value = '';
       document.getElementById('message').value = '';
-      document.getElementById('smiley').value = 'Select from the following an emoji';
+      document.getElementById('smiley').value = '🙂';
     }
   </script>
 
